@@ -10,9 +10,9 @@ output_location = "../_topics"
 
 feed = YAML.load_file(feed_file) 
 feed.each do |feeditem|
+	
 	feed_url = feeditem["feed"]
-	site = feeditem["path"]
-    name = feeditem["name"]
+    	name = feeditem["name"]
 
 	rss = FeedNormalizer::FeedNormalizer.parse open(feed_url)
 	rss.parser = "SimpleRSS"   
@@ -41,7 +41,6 @@ feed.each do |feeditem|
 			file.puts "description: \"#{description}\""
 			file.puts "link: \"#{entry_url}\""
 			file.puts "category:"
-			file.puts "directory: #{site}"
 			file.puts "---"
 			file.close
 		end
