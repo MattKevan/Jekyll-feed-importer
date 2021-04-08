@@ -6,7 +6,7 @@ Ruby script to import items from specified RSS feeds and save them as Jekyll pos
 
 Ensure the feed-normalizer, yaml, to_slug and sanitize gems are installed.
 
-Set ```feed_file``` to the location of your list of RSS feeds to check. This needs to be in YAML format with the key ```feed:``` for the feed URL.
+Set ```feed_file``` to the location of your list of RSS feeds to check. This needs to be a YAML file with the following structure:
 
 ```
 - name: [Site name]
