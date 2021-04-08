@@ -1,6 +1,6 @@
 # Jekyll feed importer
 
-Imports items from specified RSS feeds and saves them as Jekyll posts/collections.
+Ruby script to import items from specified RSS feeds and save them as Jekyll posts/collections. I should probably turn this into a plugin, but for now this works for me.
 
 ### Usage
 
