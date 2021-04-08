@@ -5,7 +5,10 @@ require 'yaml'
 require 'to_slug'
 require 'sanitize'
 
-feed = YAML.load_file("../_site/exporters/feeds.yml") 
+feed_file = "../_site/exporters/feeds.yml"
+output_location = "../_topics"
+
+feed = YAML.load_file(feed_file) 
 feed.each do |feeditem|
 	feed_url = feeditem["feed"]
 	site = feeditem["path"]
@@ -25,7 +28,7 @@ feed.each do |feeditem|
 		date = updated if date.nil?
 		date = dateadded if date.nil?
 
-		filename = "../_topics/#{title.to_slug.sub(/-\Z/,"")}.md"
+		filename = "#{output_location}/#{title.to_slug.sub(/-\Z/,"")}.md"
 		description = Sanitize.fragment(entry.description)
 		if File.exist?(filename)
 			next
@@ -44,8 +47,3 @@ feed.each do |feeditem|
 		end
 	end  
 end
-
-
-
-
-
