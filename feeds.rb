@@ -14,7 +14,7 @@ feed.each do |feeditem|
 	feed_url = feeditem["feed"]
     	name = feeditem["name"]
 
-	rss = FeedNormalizer::FeedNormalizer.parse open(feed_url)
+	rss = FeedNormalizer::FeedNormalizer.parse URI.open(feed_url)
 	rss.parser = "SimpleRSS"   
 
 	rss.entries.each do |entry|
